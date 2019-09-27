@@ -42,7 +42,6 @@ page 50020 "AB_FIFA Results List"
                 {
                     ApplicationArea = All;
                 }
-
             }
         }
     }

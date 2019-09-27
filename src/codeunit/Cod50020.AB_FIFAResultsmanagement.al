@@ -1,10 +1,5 @@
 codeunit 50020 "AB_FIFA Results management"
 {
-    trigger OnRun()
-    begin
-        Refresh();
-    end;
-
     procedure Refresh()
     var
         Results: Record "AB_FIFA Results";
@@ -35,7 +30,7 @@ codeunit 50020 "AB_FIFA Results management"
         end;
     end;
 
-    procedure InsertResults(MatchToken: JsonToken)
+    local procedure InsertResults(MatchToken: JsonToken)
     var
         Results: Record "AB_FIFA Results";
         ValueToken: JsonToken;
@@ -46,24 +41,12 @@ codeunit 50020 "AB_FIFA Results management"
         MatchToken.AsObject().Get('MatchNumber', ValueToken);
         Results.MathNo := ValueToken.AsValue().AsInteger();
 
-        MatchToken.AsObject().Get('Home', ValueToken);
-        ValueToken.AsObject().Get('TeamName', ValueToken);
+        MatchToken.AsObject().SelectToken('Home.TeamName', ValueToken);
         ValueToken.AsArray().Get(0, ValueToken);
         ValueToken.AsObject().Get('Description', ValueToken);
         Results.HomeTeam := CopyStr(ValueToken.AsValue().AsText(), 1, MaxStrLen(Results.HomeTeam));
 
-        MatchToken.AsObject().Get('Home', ValueToken);
-        ValueToken.AsObject().Get('PictureUrl', ValueToken);
-        GetFlagStream(ValueToken.AsValue().AsText(), InStr);
-        Results.Flag.ImportStream(InStr, Results.HomeTeam);
-
-        MatchToken.AsObject().Get('Away', ValueToken);
-        ValueToken.AsObject().Get('PictureUrl', ValueToken);
-        GetFlagStream(ValueToken.AsValue().AsText(), InStr);
-        Results.Flag.ImportStream(InStr, Results.AwayTeam);
-
-        MatchToken.AsObject().Get('Away', ValueToken);
-        ValueToken.AsObject().Get('TeamName', ValueToken);
+        MatchToken.AsObject().SelectToken('Away.TeamName', ValueToken);
         ValueToken.AsArray().Get(0, ValueToken);
         ValueToken.AsObject().Get('Description', ValueToken);
         Results.AwayTeam := CopyStr(ValueToken.AsValue().AsText(), 1, MaxStrLen(Results.AwayTeam));
@@ -71,11 +54,29 @@ codeunit 50020 "AB_FIFA Results management"
         MatchToken.AsObject().Get('HomeTeamScore', ValueToken);
         Results.HomeTeamResult := ValueToken.AsValue().AsInteger();
 
+        MatchToken.AsObject().Get('HomeTeamPenaltyScore', ValueToken);
+        If ValueToken.AsValue().AsInteger() > 0 then
+            Results.HomeTeamResult := ValueToken.AsValue().AsInteger();
+
         MatchToken.AsObject().Get('AwayTeamScore', ValueToken);
         Results.AwayTeamResult := ValueToken.AsValue().AsInteger();
 
-        MatchToken.AsObject().Get('Stadium', ValueToken);
-        ValueToken.AsObject().Get('CityName', ValueToken);
+        MatchToken.AsObject().Get('AwayTeamPenaltyScore', ValueToken);
+        If ValueToken.AsValue().AsInteger() > 0 then
+            Results.AwayTeamResult := ValueToken.AsValue().AsInteger();
+
+        if Results.HomeTeamResult - Results.AwayTeamResult <> 0 then
+            If Results.HomeTeamResult - Results.AwayTeamResult > 0 then begin
+                MatchToken.AsObject().SelectToken('Home.PictureUrl', ValueToken);
+                GetFlagStream(ValueToken.AsValue().AsText(), InStr);
+                Results.Flag.ImportStream(InStr, Results.HomeTeam);
+            end else begin
+                MatchToken.AsObject().SelectToken('Away.PictureUrl', ValueToken);
+                GetFlagStream(ValueToken.AsValue().AsText(), InStr);
+                Results.Flag.ImportStream(InStr, Results.AwayTeam);
+            end;
+
+        MatchToken.AsObject().SelectToken('Stadium.CityName', ValueToken);
         ValueToken.AsArray().Get(0, ValueToken);
         ValueToken.AsObject().Get('Description', ValueToken);
         Results.City := CopyStr(ValueToken.AsValue().AsText(), 1, MaxStrLen(Results.City));

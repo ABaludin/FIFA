@@ -1,6 +1,5 @@
 table 50020 "AB_FIFA Results"
 {
-
     fields
     {
         field(1; MathNo; Integer)
@@ -39,7 +38,7 @@ table 50020 "AB_FIFA Results"
             DataClassification = CustomerContent;
             Caption = 'Match Date and Time';
         }
-        field(8; Flag; MediaSet)
+        field(8; Flag; Media)
         {
             DataClassification = CustomerContent;
             Caption = 'Home Team Flag';
