@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="en-US" original="FifaDemo">
+    <body>
+      <group id="body">
+        <trans-unit id="Table 4115693282 - Field 1713124211 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Match No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AB_FIFA Results - Field MathNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115693282 - Field 1487317046 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Home Team</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AB_FIFA Results - Field HomeTeam - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115693282 - Field 944470613 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Away Team</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AB_FIFA Results - Field AwayTeam - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115693282 - Field 1143757133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Home Team Result</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AB_FIFA Results - Field HomeTeamResult - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115693282 - Field 2309231614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Away Team Result</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AB_FIFA Results - Field AwayTeamResult - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115693282 - Field 714791889 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>City</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AB_FIFA Results - Field City - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115693282 - Field 61963710 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Match Date and Time</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AB_FIFA Results - Field DateAndTime - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115693282 - Field 1485791680 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Home Team Flag</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AB_FIFA Results - Field Flag - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1987837127 - NamedType 420700410" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service inaccessible</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AB_FIFA Results management - NamedType Text001_Err</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1987837127 - NamedType 3234760735" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The web service returned an error message:\ Status code: %1\ Description: %2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AB_FIFA Results management - NamedType Text002_Err</note>
+        </trans-unit>
+        <trans-unit id="Page 172787968 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fifa Results</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AB_FIFA Results List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 172787968 - Action 2541790721 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Refresh Results</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AB_FIFA Results List - Action RefreshResults - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
