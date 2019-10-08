@@ -13,7 +13,7 @@ page 50020 "AB_FIFA Results List"
         {
             repeater(General)
             {
-                field(MathNo; MathNo)
+                field(MathNo; MatchNo)
                 {
                     ApplicationArea = All;
                 }

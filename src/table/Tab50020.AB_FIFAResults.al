@@ -2,7 +2,7 @@ table 50020 "AB_FIFA Results"
 {
     fields
     {
-        field(1; MathNo; Integer)
+        field(1; MatchNo; Integer)
         {
             DataClassification = CustomerContent;
             Caption = 'Match No.';
@@ -46,16 +46,16 @@ table 50020 "AB_FIFA Results"
     }
     fieldgroups
     {
-        fieldgroup(Brick; "Flag", MathNo, "HomeTeam", HomeTeamResult, AwayTeam, AwayTeamResult)
+        fieldgroup(Brick; "Flag", MatchNo, "HomeTeam", HomeTeamResult, AwayTeam, AwayTeamResult)
         {
         }
     }
 
     procedure RefreshResults();
     var
-        RefreshResults: Codeunit "AB_FIFA Results management";
+        FifaMgt: Codeunit "AB_FIFA Results management";
     begin
-        RefreshResults.Refresh();
+        FifaMgt.Refresh();
     end;
 
 }

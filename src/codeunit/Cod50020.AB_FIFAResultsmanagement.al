@@ -39,7 +39,7 @@ codeunit 50020 "AB_FIFA Results management"
         Results.init();
 
         MatchToken.AsObject().Get('MatchNumber', ValueToken);
-        Results.MathNo := ValueToken.AsValue().AsInteger();
+        Results.MatchNo := ValueToken.AsValue().AsInteger();
 
         MatchToken.AsObject().SelectToken('Home.TeamName', ValueToken);
         ValueToken.AsArray().Get(0, ValueToken);
@@ -55,22 +55,22 @@ codeunit 50020 "AB_FIFA Results management"
         Results.HomeTeamResult := ValueToken.AsValue().AsInteger();
 
         MatchToken.AsObject().Get('HomeTeamPenaltyScore', ValueToken);
-        If ValueToken.AsValue().AsInteger() > 0 then
+        If ValueToken.AsValue().AsInteger() > 0 then //were penalties in overtime - replace TeamResult
             Results.HomeTeamResult := ValueToken.AsValue().AsInteger();
 
         MatchToken.AsObject().Get('AwayTeamScore', ValueToken);
         Results.AwayTeamResult := ValueToken.AsValue().AsInteger();
 
         MatchToken.AsObject().Get('AwayTeamPenaltyScore', ValueToken);
-        If ValueToken.AsValue().AsInteger() > 0 then
+        If ValueToken.AsValue().AsInteger() > 0 then //were penalties in overtime - replace TeamResult
             Results.AwayTeamResult := ValueToken.AsValue().AsInteger();
 
-        if Results.HomeTeamResult - Results.AwayTeamResult <> 0 then
-            If Results.HomeTeamResult - Results.AwayTeamResult > 0 then begin
+        if Results.HomeTeamResult - Results.AwayTeamResult <> 0 then //not import flag if draw
+            If Results.HomeTeamResult - Results.AwayTeamResult > 0 then begin //Home team Win
                 MatchToken.AsObject().SelectToken('Home.PictureUrl', ValueToken);
                 GetFlagStream(ValueToken.AsValue().AsText(), InStr);
                 Results.Flag.ImportStream(InStr, Results.HomeTeam);
-            end else begin
+            end else begin // Away team Win
                 MatchToken.AsObject().SelectToken('Away.PictureUrl', ValueToken);
                 GetFlagStream(ValueToken.AsValue().AsText(), InStr);
                 Results.Flag.ImportStream(InStr, Results.AwayTeam);
@@ -94,6 +94,7 @@ codeunit 50020 "AB_FIFA Results management"
         ResponseText: Text;
         TextBuilder: TextBuilder;
     begin
+        //Basic URL is https://api.fifa.com/api/v1/picture/flags-{format}-{size}/RUS
         TextBuilder.Append(FlagUrl);
         TextBuilder.Replace('{format}', 'fwc2018');
         TextBuilder.Replace('{size}', '1');
