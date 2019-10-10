@@ -1,4 +1,4 @@
-codeunit 50020 "AB_FIFA Results management"
+codeunit 50120 "AB_FIFA Results management"
 {
     procedure Refresh()
     var

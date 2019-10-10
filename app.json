@@ -29,8 +29,8 @@
   "features": ["TranslationFile"],
   "idRanges": [
     {
-      "from": 50020,
-      "to": 50030
+      "from": 50120,
+      "to": 50130
     }
   ],
   "showMyCode": true,

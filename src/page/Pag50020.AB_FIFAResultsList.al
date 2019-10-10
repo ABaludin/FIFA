@@ -1,4 +1,4 @@
-page 50020 "AB_FIFA Results List"
+page 50120 "AB_FIFA Results List"
 {
     PageType = List;
     SourceTable = "AB_FIFA Results";

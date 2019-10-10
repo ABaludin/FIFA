@@ -1,4 +1,4 @@
-table 50020 "AB_FIFA Results"
+table 50120 "AB_FIFA Results"
 {
     fields
     {
